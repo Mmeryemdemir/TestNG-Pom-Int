@@ -31,7 +31,7 @@ public class TestBase {
 
     @AfterMethod
     public void teardown() {
-      //  driver.close();
+        driver.close();
 
     }
 
