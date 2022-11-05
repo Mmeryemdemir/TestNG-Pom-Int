@@ -45,5 +45,11 @@ public class C01_DriverİlkClass {
         WebElement aramaKutusu = Driver.getDriver().findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys("Nutella"+ Keys.ENTER);
 
+        Driver.closeDriver();
+    }
+
+    @Test
+    public void test02(){
+        Driver.closeDriver();
     }
 }
