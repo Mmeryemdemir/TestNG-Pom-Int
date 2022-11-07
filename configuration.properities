@@ -8,5 +8,23 @@ amazonUrl = https://www.amazon.com
 amazonAramaKelimesi=Nutella
 
 
+myUrl = https://mycoursedemy.com/
+myGecerliEmail = user_1106158@login.com
+myGecerliPassword = 835337115
+
+
+myYanlisEmail = gfiehfoke@gamil.com
+myYanlisPassword = jfgooqjea
+
+
+myCourseTitle = Java
+myCoursePrice=100
+myDiscount=50
+myMetaKeywords=Java kursu
+
+
+
+
+
 facebookYanlisKullaniciAdi=boraDeneme
 facebookYanlisKullaniciPassword=12345

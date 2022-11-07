@@ -23,9 +23,12 @@ public class C05_PagesKullanimi {
         facebookPage.facebookEmailKutusu.sendKeys(faker.internet().emailAddress());
         facebookPage.facebookPasswordKutusu.sendKeys(faker.internet().password());
         facebookPage.girisButonu.click();
+
         //4- Basarili giris yapilamadigini test edin
         Assert.assertTrue(facebookPage.girilemediYaziElementi.isDisplayed());
 
         ReusableMethods.bekle(5);
+
+
     }
 }

@@ -11,6 +11,12 @@ import java.time.Duration;
 public class Driver {
 
 
+    private Driver(){
+
+        // Singleton pattern konsepti ile
+        // driver class'ından obje oluşturmayı engellemek için bu cons.'ı oluşturduk
+
+    }
    static WebDriver driver;
     public static WebDriver getDriver(){
 

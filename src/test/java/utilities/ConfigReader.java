@@ -7,24 +7,24 @@ import java.util.Properties;
 
 public class ConfigReader {
 
-   static Properties properties ;
+
+    static Properties properties;
 
     static {
-        String dosyaYolu = "configuration.properities";
+        String dosyaYolu="configuration.properities";
 
         try {
             FileInputStream fis = new FileInputStream(dosyaYolu);
-            properties= new Properties();
+            properties=new Properties();
             properties.load(fis);
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public static String getProperty(String key){
-
         return properties.getProperty(key);
     }
 }
