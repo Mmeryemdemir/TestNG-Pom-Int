@@ -47,7 +47,6 @@ public class Q4 {
         String actual = Driver.getDriver().findElement(By.className("active_option")).getText();
 
 
-
         softAssert.assertEquals(actual,expected,"Aktif secenekteki yazı expected data'dan farklı");
 
         softAssert.assertAll();
