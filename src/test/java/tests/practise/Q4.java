@@ -37,13 +37,14 @@ public class Q4 {
 
         Driver.getDriver().findElement(By.xpath("//input[@type='submit']")).click();
 
-        WebElement dropdown = Driver.getDriver().findElement(By.xpath("//select[@class='product_sort_container']"));
+        WebElement dropdown = Driver.getDriver().findElement(By.className("product_sort_container"));
+
         Select select = new Select(dropdown);
 
-        select.selectByVisibleText("Price (low to high )");
+        select.selectByVisibleText("Price (low to high)");
 
-        String expected = "PRİCE (LOW TO HİGH)";
-        String actual = Driver.getDriver().findElement(By.xpath("//option[@value='lohi']")).getText();
+        String expected = "PRICE (LOW TO HIGH)";
+        String actual = Driver.getDriver().findElement(By.className("active_option")).getText();
 
 
 
@@ -58,39 +59,47 @@ public class Q4 {
 @Test
     public void  saucedemoTest2(){
 
+
     Driver.getDriver().get("https://www.saucedemo.com/");
 
-    Driver.getDriver().findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("standard_user");
-    Driver.getDriver().findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("secret_sauce");
+    Driver.getDriver().findElement(By.id("user-name")).sendKeys("standard_user");
+    Driver.getDriver().findElement(By.xpath("//input[@id='password']")).sendKeys("secret_sauce");
 
-    Driver.getDriver().findElement(By.xpath("//input[@type='submit']")).click();
+    Driver.getDriver().findElement(By.id("login-button")).click();
+
+    WebElement dropDown = Driver.getDriver().findElement(By.className("product_sort_container"));
+
+    Select select = new Select(dropDown);
+    select.selectByVisibleText("Price (low to high)");
 
     List<WebElement> fiyatlar = Driver.getDriver().findElements(By.className("inventory_item_price"));
 
     ArrayList<Double> fiyatlarDouble = new ArrayList<>();
 
+    for (WebElement fiyat:fiyatlar) {
 
-    for (WebElement fiyat:fiyatlar
-    ) {
-
-        //  String fiyatStr = fiyat.getText().replaceAll("$","");
-
+        // String fiyatStr = fiyat.getText().replaceAll("$","");
         String fiyatStr = fiyat.getText().replaceAll("^\\D","");
+
         fiyatlarDouble.add(Double.parseDouble(fiyatStr));
-
-        System.out.println(fiyatStr);
-
     }
 
     ArrayList<Double> kontrolList = new ArrayList<>(fiyatlarDouble);
 
     Collections.sort(kontrolList);
 
+    System.out.println(kontrolList+"\n"+fiyatlarDouble);
+
+    softAssert.assertEquals(kontrolList,fiyatlarDouble);
+
+    softAssert.assertAll();
+}
+
 
 
 }
 
-}
+
 
 
 
